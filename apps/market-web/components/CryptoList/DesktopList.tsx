@@ -30,7 +30,7 @@ const DesktopList = () => {
             <Typography className="flex font-semibold">Rp. 100.000</Typography>
           </BodyCell>
           <BodyCell>
-            <div className="flex items-center gap-1">
+            <div className="flex items-center justify-center gap-1">
               <div className="animate-bounce">
                 <ArrowUp />
               </div>
@@ -40,7 +40,7 @@ const DesktopList = () => {
             </div>
           </BodyCell>
           <BodyCell>
-            <div className="flex items-center gap-1">
+            <div className="flex items-center justify-center gap-1">
               <div className="animate-bounce">
                 <ArrowDown />
               </div>
@@ -50,7 +50,7 @@ const DesktopList = () => {
             </div>
           </BodyCell>
           <BodyCell>
-            <div className="flex items-center gap-1">
+            <div className="flex items-center justify-center gap-1">
               <div className="animate-bounce">
                 <ArrowDown />
               </div>
@@ -60,7 +60,7 @@ const DesktopList = () => {
             </div>
           </BodyCell>
           <BodyCell>
-            <div className="flex items-center gap-1">
+            <div className="flex items-center justify-center gap-1">
               <div className="animate-bounce">
                 <ArrowDown />
               </div>
