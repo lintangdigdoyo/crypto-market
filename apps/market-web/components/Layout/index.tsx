@@ -10,7 +10,7 @@ const Layout = ({ children }: LayoutProps) => {
       <Head>
         <title>Crypto Market</title>
       </Head>
-      <main className="max-w-7xl mx-auto my-2">{children}</main>
+      <main className="max-w-7xl mx-auto my-6">{children}</main>
     </>
   );
 };
