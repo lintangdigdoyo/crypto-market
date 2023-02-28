@@ -1,17 +1,11 @@
-import Head from "next/head";
+import Typography from "../components/Common/Typography";
 
 export function Index() {
   return (
     <>
-      <Head>
-        <title>Welcome to market-web!</title>
-      </Head>
-      <div>
-        <h1 className="text-2xl">
-          <span className="text-red-700">Hello World, </span>
-          Welcome market-web 👋
-        </h1>
-      </div>
+      <Typography type="h1" variant="heading2" classNameProps="pl-4">
+        Harga Crypto dalam Rupiah Hari Ini
+      </Typography>
     </>
   );
 }
