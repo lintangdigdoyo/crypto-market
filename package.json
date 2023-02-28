@@ -2,7 +2,12 @@
   "name": "crypto-market",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "dev:mobile": "nx run market-mobile:start",
+    "dev:web": "nx serve market-web",
+    "build:web": "nx run market-web:build:production",
+    "start:web": "nx run market-web:serve:production"
+  },
   "private": true,
   "dependencies": {
     "@expo/metro-config": "0.3.22",
