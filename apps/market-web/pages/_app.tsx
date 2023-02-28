@@ -1,19 +1,18 @@
 import { AppProps } from "next/app";
-import Head from "next/head";
+import { QueryClientProvider } from "@tanstack/react-query";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 import "../styles/styles.css";
 
-function CustomApp({ Component, pageProps }: AppProps) {
+import queryClient from "services/queryClient";
+
+function App({ Component, pageProps }: AppProps) {
   return (
-    <>
-      <Head>
-        <title>Welcome to market-web!</title>
-      </Head>
-      <main className="app">
-        <Component {...pageProps} />
-      </main>
-    </>
+    <QueryClientProvider client={queryClient}>
+      <Component {...pageProps} />
+      <ReactQueryDevtools />
+    </QueryClientProvider>
   );
 }
 
-export default CustomApp;
+export default App;

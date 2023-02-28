@@ -12,6 +12,8 @@
   "dependencies": {
     "@expo/metro-config": "0.3.22",
     "@nrwl/next": "15.7.2",
+    "@tanstack/react-query": "^4.24.10",
+    "@tanstack/react-query-devtools": "^4.24.12",
     "expo": "46.0.10",
     "expo-splash-screen": "~0.16.2",
     "expo-status-bar": "~1.4.0",
