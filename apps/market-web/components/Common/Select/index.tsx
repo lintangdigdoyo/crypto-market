@@ -1,5 +1,5 @@
 interface SelectProps extends React.SelectHTMLAttributes<HTMLSelectElement> {
-  options: string[];
+  options: { label: string; value: string }[];
 }
 
 const Select = ({ options, ...restProps }: SelectProps) => {
@@ -12,8 +12,8 @@ const Select = ({ options, ...restProps }: SelectProps) => {
             {...restProps}
           >
             {options.map((option, index) => (
-              <option key={index} value={option}>
-                {option}
+              <option key={index} value={option.value}>
+                {option.label}
               </option>
             ))}
           </select>

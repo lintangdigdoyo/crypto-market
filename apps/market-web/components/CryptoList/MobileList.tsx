@@ -1,15 +1,25 @@
 import { useState } from "react";
 
-import { ArrowUp } from "../../assets/icons";
+import { CurrenciesPriceType } from "@crypto-market/services";
+
+import { PriceTimeType } from "./types";
+import { TIME_OPTIONS } from "./constants";
 import Select from "../Common/Select";
 import List from "../Common/List";
 import Typography from "../Common/Typography";
+import CryptoName from "./components/CryptoName";
+import Price from "./components/Price";
+import Percentage from "./components/Percentage";
 
-const MobileList = () => {
-  const [value, setValue] = useState("");
+interface MobileListProps {
+  currenciesPrice: CurrenciesPriceType[];
+}
+
+const MobileList = ({ currenciesPrice }: MobileListProps) => {
+  const [timeValue, setTimeValue] = useState<PriceTimeType>("day");
 
   const handleChange: React.ChangeEventHandler<HTMLSelectElement> = (e) => {
-    setValue(e.target.value);
+    setTimeValue(e.target.value as PriceTimeType);
   };
 
   return (
@@ -19,31 +29,25 @@ const MobileList = () => {
           CRYPTO
         </Typography>
         <Select
-          options={["24 JAM", "1 MGG", "1 BLN", "1 THN"]}
-          value={value}
+          options={TIME_OPTIONS}
+          value={timeValue}
           onChange={handleChange}
         />
       </List>
-      <List>
-        <div className="flex items-center gap-4">
-          <div className="text-2xl text-orange-500">LOGO</div>
-          <div className="w-full">
-            <Typography className="font-semibold">Bitcoin BTC</Typography>
-            <Typography className="text-gray">BTC</Typography>
+      {currenciesPrice.map((currency, index) => (
+        <List key={index}>
+          <CryptoName
+            name={currency.name}
+            symbol={currency.currencySymbol}
+            logoUrl={currency.logo}
+            color={currency.color}
+          />
+          <div>
+            <Price value={currency.latestPrice} />
+            <Percentage value={currency[timeValue]} />
           </div>
-        </div>
-        <div>
-          <Typography className="flex font-semibold">Rp. 100.000</Typography>
-          <div className="flex items-center justify-end gap-1">
-            <div className="animate-bounce">
-              <ArrowUp />
-            </div>
-            <Typography className="font-semibold text-success">
-              1.10%
-            </Typography>
-          </div>
-        </div>
-      </List>
+        </List>
+      ))}
     </>
   );
 };

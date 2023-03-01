@@ -1,3 +1,5 @@
+import { useMemo } from "react";
+
 import { getCurrenciesPrice } from "@crypto-market/services";
 
 import {
@@ -20,17 +22,17 @@ const CryptoList = () => {
     refetchInterval: 1000 * 2,
   });
 
+  const currenciesPrice = useMemo(
+    () => getCurrenciesPrice(dataGetSupportedCurrencies, dataGetPriceChange),
+    [dataGetPriceChange, dataGetSupportedCurrencies]
+  );
+
   return (
     <>
       {isMobileDevice ? (
-        <MobileList />
+        <MobileList currenciesPrice={currenciesPrice} />
       ) : (
-        <DesktopList
-          currenciesPrice={getCurrenciesPrice(
-            dataGetSupportedCurrencies,
-            dataGetPriceChange
-          )}
-        />
+        <DesktopList currenciesPrice={currenciesPrice} />
       )}
     </>
   );

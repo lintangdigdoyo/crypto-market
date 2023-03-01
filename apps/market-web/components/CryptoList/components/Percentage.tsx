@@ -11,7 +11,7 @@ const Percentage = ({ value }: PercentageProps) => {
   const isNegative = value.includes("-");
 
   return (
-    <div className="flex items-center justify-center gap-1">
+    <div className="flex items-center justify-end gap-1 sm:justify-center">
       <div className="animate-bounce-slow">
         {isNegative ? <ArrowDown /> : <ArrowUp />}
       </div>

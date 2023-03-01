@@ -16,7 +16,7 @@ const Home = () => {
       <Typography
         type="h1"
         variant="heading2"
-        className="pl-4 sm:typography-heading1"
+        className="pl-4 sm:typography-heading1 sm:pl-0"
       >
         Harga Crypto dalam Rupiah Hari Ini
       </Typography>

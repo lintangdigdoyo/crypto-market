@@ -5,7 +5,10 @@ const useMediaQuery = (query: string): boolean => {
 
   useEffect(
     () => {
-      const mediaQuery = window.matchMedia(query);
+      const mediaQuery = window?.matchMedia(query);
+
+      // set initial value
+      setMatch(mediaQuery.matches);
 
       const handleChange = (mediaQuery: MediaQueryListEvent) => {
         setMatch(mediaQuery.matches);
