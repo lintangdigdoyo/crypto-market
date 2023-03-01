@@ -1,5 +1,5 @@
-import { useRef } from 'react';
-import { StyleSheet, ScrollView, View, Text } from 'react-native';
+import { useRef } from "react";
+import { StyleSheet, ScrollView, View, Text } from "react-native";
 
 const Market = () => {
   const scrollViewRef = useRef<null | ScrollView>(null);
@@ -33,7 +33,7 @@ const Market = () => {
 
 const styles = StyleSheet.create({
   scrollView: {
-    backgroundColor: '#ffffff',
+    backgroundColor: "#ffffff",
   },
   textLg: {
     fontSize: 24,
@@ -47,16 +47,16 @@ const styles = StyleSheet.create({
   },
   appTitleText: {
     paddingTop: 12,
-    fontWeight: '500',
+    fontWeight: "500",
   },
   hero: {
     borderRadius: 12,
-    backgroundColor: '#143055',
+    backgroundColor: "#143055",
     padding: 36,
     marginBottom: 24,
   },
   heroTitleText: {
-    color: '#ffffff',
+    color: "#ffffff",
     marginLeft: 12,
   },
 });
