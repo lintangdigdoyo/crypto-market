@@ -1,4 +1,7 @@
-import { PriceChangesResType, SupportedCurrenciesResType } from "../types";
+import {
+  PriceChangesResType,
+  SupportedCurrenciesResType,
+} from "@crypto-market/services";
 
 const getCurrenciesPrice = (
   currencies?: SupportedCurrenciesResType,

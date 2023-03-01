@@ -1,8 +1,9 @@
 import { memo } from "react";
 import classNames from "classnames";
 
+import { useGetPreviousValue } from "@crypto-market/utils";
+
 import Typography from "../../Common/Typography";
-import useGetPreviousValue from "../../../utils/hooks/useGetPreviousValue";
 
 interface PriceProps {
   value: string;

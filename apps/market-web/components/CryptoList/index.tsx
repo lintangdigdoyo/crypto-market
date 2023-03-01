@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 
-import { getCurrenciesPrice } from "@crypto-market/services";
+import { getCurrenciesPrice } from "@crypto-market/utils";
 
 import {
   useGetPriceChanges,

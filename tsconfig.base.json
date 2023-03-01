@@ -15,7 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@crypto-market/services": ["libs/services/src/index.ts"]
+      "@crypto-market/services": ["libs/services/src/index.ts"],
+      "@crypto-market/utils": ["libs/utils/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

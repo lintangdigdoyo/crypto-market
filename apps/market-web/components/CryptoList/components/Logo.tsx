@@ -1,4 +1,4 @@
-import useGetLogo from "../../../utils/hooks/useGetLogo";
+import { useGetLogo } from "@crypto-market/utils";
 
 interface LogoProps {
   logoUrl: string;
