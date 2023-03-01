@@ -15,11 +15,11 @@ interface TypographyProps
 }
 
 const CLASS_STYLES = {
-  heading1: "text-2xl font-bold",
-  heading2: "text-xl font-bold",
-  paragraph1: "text-lg",
-  paragraph2: "text-base",
-  caption: "text-sm",
+  heading1: "typography-heading1",
+  heading2: "typography-heading2",
+  paragraph1: "typography-paragraph1",
+  paragraph2: "typography-paragraph2",
+  caption: "typography-caption",
 };
 
 const Typography = ({
@@ -35,7 +35,7 @@ const Typography = ({
     {
       className: classNames(
         /** base styles */
-        "base-text",
+        "typography-base",
         /** props styles */
         CLASS_STYLES[variant],
         { ["font-bold"]: bold },

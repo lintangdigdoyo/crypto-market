@@ -3,7 +3,22 @@
 @tailwind utilities;
 
 @layer components {
-  .base-text {
-      @apply text-black;
+  .typography-base {
+    @apply text-black;
+  }
+  .typography-heading1 {
+    @apply text-2xl font-bold;
+  }
+  .typography-heading2 {
+    @apply text-xl font-bold;
+  }
+  .typography-paragraph1 {
+    @apply text-lg;
+  }
+  .typography-paragraph2 {
+    @apply text-base;
+  }
+  .typography-caption {
+    @apply text-sm;
   }
 }

@@ -13,7 +13,11 @@ import CryptoList from "../components/CryptoList";
 const Home = () => {
   return (
     <>
-      <Typography type="h1" variant="heading2" className="pl-4">
+      <Typography
+        type="h1"
+        variant="heading2"
+        className="pl-4 sm:typography-heading1"
+      >
         Harga Crypto dalam Rupiah Hari Ini
       </Typography>
       <div className="my-10">
