@@ -1,14 +1,14 @@
-import { SafeAreaView, StatusBar } from 'react-native';
-import Market from './screens/Market';
+import { StatusBar } from "react-native";
+import { SafeAreaProvider } from "react-native-safe-area-context";
+
+import Navigation from "./navigation";
 
 const App = () => {
   return (
-    <>
-      <StatusBar barStyle="light-content" />
-      <SafeAreaView>
-        <Market />
-      </SafeAreaView>
-    </>
+    <SafeAreaProvider>
+      <Navigation />
+      <StatusBar backgroundColor="#ffff" barStyle="dark-content" />
+    </SafeAreaProvider>
   );
 };
 
