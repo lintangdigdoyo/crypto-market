@@ -21,7 +21,7 @@ const Home = ({ isMobile }: HomeProps) => {
       <Typography
         type="h1"
         variant="heading2"
-        className="pl-4 sm:typography-heading1 sm:pl-0"
+        className="pl-4 sm:typography-heading1 xl:pl-0"
       >
         Harga Crypto dalam Rupiah Hari Ini
       </Typography>
