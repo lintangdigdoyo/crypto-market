@@ -1,11 +1,21 @@
-import { NavigationContainer } from "@react-navigation/native";
+import { NavigationContainer, DefaultTheme } from "@react-navigation/native";
 
 import linkingConfiguration from "./linkingConfiguration";
+import { theme } from "../styles/palette";
 import RootNavigator from "./RootNavigator";
 
 const Navigation = () => {
   return (
-    <NavigationContainer linking={linkingConfiguration}>
+    <NavigationContainer
+      theme={{
+        ...DefaultTheme,
+        colors: {
+          ...DefaultTheme.colors,
+          background: theme.colors.white,
+        },
+      }}
+      linking={linkingConfiguration}
+    >
       <RootNavigator />
     </NavigationContainer>
   );

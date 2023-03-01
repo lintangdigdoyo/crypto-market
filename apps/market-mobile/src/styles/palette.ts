@@ -1,9 +1,12 @@
+import { TextStyle } from "react-native";
+
 export const theme = {
   colors: {
     primary: "#0a68f4",
     primaryLight: "#edf4fe",
     success: "#25a764",
     error: "#e54040",
+    white: "#ffffff",
     black: "#0b0a0a",
     gray: "#929396",
   },
@@ -15,8 +18,8 @@ export const theme = {
   },
   textVariants: {
     header: {
-      fontSize: 36,
-      fontWeight: "bold",
+      fontSize: 24,
+      fontWeight: "bold" as TextStyle["fontWeight"],
     },
     body: {
       fontSize: 16,
