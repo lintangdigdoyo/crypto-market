@@ -1,7 +1,7 @@
 import api from "../api";
 import { SupportedCurrenciesResType } from "../types";
 
-const getSupportedCurrencies = async (baseURL?: string) => {
+const getSupportedCurrencies = async (baseURL: string) => {
   const res = await api.get<SupportedCurrenciesResType>(
     "/wallet/supportedCurrencies",
     {

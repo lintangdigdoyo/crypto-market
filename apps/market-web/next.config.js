@@ -13,7 +13,8 @@ const nextConfig = {
     svgr: false,
   },
   env: {
-    API_BASE_URL: process.env.API_BASE_URL || "",
+    API_TARGET_URL: process.env.API_TARGET_URL || "",
+    API_BASE: process.env.API_BASE || "",
   },
 };
 

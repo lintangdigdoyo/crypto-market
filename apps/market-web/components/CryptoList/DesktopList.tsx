@@ -1,8 +1,38 @@
-import { ArrowDown, ArrowUp } from "../../assets/icons";
+import { useState } from "react";
+
+import {
+  CurrenciesPriceType,
+  getCurrenciesPrice,
+} from "@crypto-market/services";
+
+import {
+  useGetPriceChanges,
+  useGetSupportedCurrencies,
+} from "../../services/hooks";
 import { Table, HeadCell, BodyCell } from "../Common/Table";
-import Typography from "../Common/Typography";
+import Percentage from "./components/Percentage";
+import CryptoName from "./components/CryptoName";
+import Price from "./components/Price";
 
 const DesktopList = () => {
+  const [currenciesPrice, setCurrenciesPrice] = useState<CurrenciesPriceType[]>(
+    []
+  );
+
+  const { data: dataGetSupportedCurrencies } = useGetSupportedCurrencies({
+    staleTime: 1000 * 60 * 60,
+    cacheTime: 1000 * 60 * 65,
+  });
+
+  useGetPriceChanges({
+    refetchInterval: 1000 * 2,
+    onSuccess(data) {
+      console.log(data);
+      const result = getCurrenciesPrice(dataGetSupportedCurrencies, data);
+      setCurrenciesPrice(result);
+    },
+  });
+
   return (
     <Table>
       <thead>
@@ -16,60 +46,33 @@ const DesktopList = () => {
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <BodyCell>
-            <div className="flex items-center gap-4">
-              <div className="text-2xl text-orange-500">LOGO</div>
-              <div className="flex justify-between w-full">
-                <Typography className="font-semibold">Bitcoin BTC</Typography>
-                <Typography className="mx-6 text-gray">BTC</Typography>
-              </div>
-            </div>
-          </BodyCell>
-          <BodyCell className="font-semibold">
-            <Typography className="flex font-semibold">Rp. 100.000</Typography>
-          </BodyCell>
-          <BodyCell>
-            <div className="flex items-center justify-center gap-1">
-              <div className="animate-bounce">
-                <ArrowUp />
-              </div>
-              <Typography className="font-semibold text-success">
-                1.10%
-              </Typography>
-            </div>
-          </BodyCell>
-          <BodyCell>
-            <div className="flex items-center justify-center gap-1">
-              <div className="animate-bounce">
-                <ArrowDown />
-              </div>
-              <Typography className="flex font-semibold text-error">
-                1.10%
-              </Typography>
-            </div>
-          </BodyCell>
-          <BodyCell>
-            <div className="flex items-center justify-center gap-1">
-              <div className="animate-bounce">
-                <ArrowDown />
-              </div>
-              <Typography className="flex font-semibold text-error">
-                1.10%
-              </Typography>
-            </div>
-          </BodyCell>
-          <BodyCell>
-            <div className="flex items-center justify-center gap-1">
-              <div className="animate-bounce">
-                <ArrowDown />
-              </div>
-              <Typography className="flex font-semibold text-error">
-                1.10%
-              </Typography>
-            </div>
-          </BodyCell>
-        </tr>
+        {currenciesPrice.map((currency, index) => (
+          <tr key={index}>
+            <BodyCell>
+              <CryptoName
+                name={currency.name}
+                symbol={currency.currencySymbol}
+                logoUrl={currency.logo}
+                color={currency.color}
+              />
+            </BodyCell>
+            <BodyCell>
+              <Price value={currency.latestPrice} />
+            </BodyCell>
+            <BodyCell>
+              <Percentage value={currency.day} />
+            </BodyCell>
+            <BodyCell>
+              <Percentage value={currency.week} />
+            </BodyCell>
+            <BodyCell>
+              <Percentage value={currency.month} />
+            </BodyCell>
+            <BodyCell>
+              <Percentage value={currency.year} />
+            </BodyCell>
+          </tr>
+        ))}
       </tbody>
     </Table>
   );

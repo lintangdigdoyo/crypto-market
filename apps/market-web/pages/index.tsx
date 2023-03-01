@@ -1,3 +1,8 @@
+import { GetServerSideProps } from "next";
+import { dehydrate, QueryClient } from "@tanstack/react-query";
+
+import { QueryKeyEnum, getSupportedCurrencies } from "@crypto-market/services";
+
 import Typography from "../components/Common/Typography";
 import CryptoList from "../components/CryptoList";
 
@@ -13,5 +18,20 @@ export function Index() {
     </>
   );
 }
+
+export const getServerSideProps: GetServerSideProps = async () => {
+  const queryClient = new QueryClient();
+  const apiTarget = process.env.API_TARGET_URL + "/v2";
+
+  await queryClient.prefetchQuery([QueryKeyEnum.Currencies], () =>
+    getSupportedCurrencies(apiTarget)
+  );
+
+  return {
+    props: {
+      dehydratedState: dehydrate(queryClient),
+    },
+  };
+};
 
 export default Index;
