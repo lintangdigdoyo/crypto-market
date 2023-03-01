@@ -10,8 +10,12 @@ import useMediaQuery from "../../utils/hooks/useMediaQuery";
 import DesktopList from "./DesktopList";
 import MobileList from "./MobileList";
 
-const CryptoList = () => {
-  const isMobileDevice = useMediaQuery("(max-width: 640px)");
+interface CryptoListProps {
+  isMobile: boolean;
+}
+
+const CryptoList = ({ isMobile }: CryptoListProps) => {
+  const isMobileDevice = useMediaQuery("(max-width: 640px)", isMobile);
 
   const { data: dataGetSupportedCurrencies } = useGetSupportedCurrencies({
     staleTime: 1000 * 60 * 60,

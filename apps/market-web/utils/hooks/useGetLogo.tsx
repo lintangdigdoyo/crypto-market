@@ -12,7 +12,8 @@ const useGetLogo = (logoUrl: string) => {
     } catch (err) {
       console.error(err);
     }
-  }, [logoUrl]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return svg ? DOMPurify.sanitize(svg, { USE_PROFILES: { svg: true } }) : "";
 };
