@@ -1,12 +1,16 @@
 import { GetServerSideProps } from "next";
 import { dehydrate, QueryClient } from "@tanstack/react-query";
 
-import { QueryKeyEnum, getSupportedCurrencies } from "@crypto-market/services";
+import {
+  QueryKeyEnum,
+  getSupportedCurrencies,
+  getPriceChanges,
+} from "@crypto-market/services";
 
 import Typography from "../components/Common/Typography";
 import CryptoList from "../components/CryptoList";
 
-export function Index() {
+const Home = () => {
   return (
     <>
       <Typography type="h1" variant="heading2" className="pl-4">
@@ -17,7 +21,7 @@ export function Index() {
       </div>
     </>
   );
-}
+};
 
 export const getServerSideProps: GetServerSideProps = async () => {
   const queryClient = new QueryClient();
@@ -25,6 +29,9 @@ export const getServerSideProps: GetServerSideProps = async () => {
 
   await queryClient.prefetchQuery([QueryKeyEnum.Currencies], () =>
     getSupportedCurrencies(apiTarget)
+  );
+  await queryClient.prefetchQuery([QueryKeyEnum.PriceChanges], () =>
+    getPriceChanges(apiTarget)
   );
 
   return {
@@ -34,4 +41,4 @@ export const getServerSideProps: GetServerSideProps = async () => {
   };
 };
 
-export default Index;
+export default Home;

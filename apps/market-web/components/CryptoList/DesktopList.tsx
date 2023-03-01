@@ -1,38 +1,15 @@
-import { useState } from "react";
+import { CurrenciesPriceType } from "@crypto-market/services";
 
-import {
-  CurrenciesPriceType,
-  getCurrenciesPrice,
-} from "@crypto-market/services";
-
-import {
-  useGetPriceChanges,
-  useGetSupportedCurrencies,
-} from "../../services/hooks";
 import { Table, HeadCell, BodyCell } from "../Common/Table";
 import Percentage from "./components/Percentage";
 import CryptoName from "./components/CryptoName";
 import Price from "./components/Price";
 
-const DesktopList = () => {
-  const [currenciesPrice, setCurrenciesPrice] = useState<CurrenciesPriceType[]>(
-    []
-  );
+interface DesktopListProps {
+  currenciesPrice: CurrenciesPriceType[];
+}
 
-  const { data: dataGetSupportedCurrencies } = useGetSupportedCurrencies({
-    staleTime: 1000 * 60 * 60,
-    cacheTime: 1000 * 60 * 65,
-  });
-
-  useGetPriceChanges({
-    refetchInterval: 1000 * 2,
-    onSuccess(data) {
-      console.log(data);
-      const result = getCurrenciesPrice(dataGetSupportedCurrencies, data);
-      setCurrenciesPrice(result);
-    },
-  });
-
+const DesktopList = ({ currenciesPrice }: DesktopListProps) => {
   return (
     <Table>
       <thead>

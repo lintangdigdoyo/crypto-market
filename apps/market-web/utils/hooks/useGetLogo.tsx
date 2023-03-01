@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import DOMPurify from "dompurify";
 
 const useGetLogo = (logoUrl: string) => {
-  const [svg, setSvg] = useState("");
+  const [svg, setSvg] = useState<string>();
 
   useEffect(() => {
     try {
@@ -14,7 +14,7 @@ const useGetLogo = (logoUrl: string) => {
     }
   }, [logoUrl]);
 
-  return DOMPurify.sanitize(svg, { USE_PROFILES: { svg: true } });
+  return svg ? DOMPurify.sanitize(svg, { USE_PROFILES: { svg: true } }) : "";
 };
 
 export default useGetLogo;
