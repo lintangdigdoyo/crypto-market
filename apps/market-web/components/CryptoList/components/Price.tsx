@@ -19,14 +19,12 @@ const Price = ({ value }: PriceProps) => {
     maximumFractionDigits: 0,
   });
 
-  const isLessThanPrev = parseInt(value) < parseInt(prevValue);
-
   return (
     <Typography
       key={value}
       className={classNames("font-semibold", {
-        ["animate-pulse-red"]: isLessThanPrev,
-        ["animate-pulse-green"]: !isLessThanPrev,
+        ["animate-pulse-red"]: parseInt(value) < parseInt(prevValue),
+        ["animate-pulse-green"]: parseInt(value) > parseInt(prevValue),
       })}
     >
       {currencyFormatter.format(parseInt(value))}

@@ -23,7 +23,7 @@ module.exports = {
       animation: {
         "bounce-slow": "bounce 2s linear infinite",
         "pulse-red": "pulse-red 2s linear",
-        "pulse-green": "pulse-green 2s linear",
+        "pulse-green": "pulse-green 4s linear",
       },
       keyframes: {
         "pulse-red": {
