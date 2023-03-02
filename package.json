@@ -6,9 +6,12 @@
     "dev:mobile": "nx run market-mobile:start",
     "build:mobile": "nx build market-mobile",
     "publish:mobile": "nx run market-mobile:publish",
+    "lint:mobile": "npx nx lint market-mobile",
+    
     "dev:web": "nx serve market-web",
     "build:web": "nx run market-web:build:production",
-    "start:web": "nx run market-web:serve:production"
+    "start:web": "nx run market-web:serve:production",
+    "lint:web": "npx nx lint market-web"
   },
   "private": true,
   "dependencies": {
