@@ -3,11 +3,7 @@ import classNames from "classnames";
 import { ArrowUp, ArrowDown } from "../../../assets/icons";
 import Typography from "../../Common/Typography";
 
-interface PercentageProps {
-  value: string;
-}
-
-const Percentage = ({ value }: PercentageProps) => {
+const Percentage = ({ value = "0" }) => {
   const isNegative = value.includes("-");
 
   return (

@@ -18,7 +18,10 @@
     "@react-navigation/native": "*",
     "expo-linking": "*",
     "@react-navigation/native-stack": "*",
-    "@expo/webpack-config": "*"
+    "@expo/webpack-config": "*",
+    "@tanstack/react-query": "*",
+    "axios": "*",
+    "dompurify": "*"
   },
   "scripts": {
     "eas-build-pre-install": "cd ../../ && cp package-lock.json ./apps/market-mobile/",

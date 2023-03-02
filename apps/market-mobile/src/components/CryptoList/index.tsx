@@ -1,17 +1,39 @@
+import { memo } from "react";
 import { View, StyleSheet } from "react-native";
 
 import { theme } from "../../styles/palette";
-import CryptoName from "./CryptoName";
 import Percentage from "./Percentage";
 import Price from "./Price";
+import CryptoName from "./CryptoName";
 
-const CryptoList = () => {
+interface CryptoListProps {
+  name: string;
+  color: string;
+  logo: string;
+  currencySymbol: string;
+  latestPrice: string;
+  day: string;
+}
+
+const CryptoList = ({
+  name,
+  color,
+  logo,
+  currencySymbol,
+  latestPrice,
+  day,
+}: CryptoListProps) => {
   return (
     <View style={styles.container}>
-      <CryptoName />
-      <View>
-        <Price value="10000" />
-        <Percentage />
+      <CryptoName
+        name={name}
+        symbol={currencySymbol}
+        logoUrl={logo}
+        color={color}
+      />
+      <View style={styles.price}>
+        <Price value={latestPrice} />
+        <Percentage value={day} />
       </View>
     </View>
   );
@@ -24,7 +46,12 @@ const styles = StyleSheet.create({
     alignItems: "center",
     paddingVertical: theme.spacing.s,
     paddingHorizontal: theme.spacing.m,
+    borderColor: theme.colors.grayLight,
+    borderBottomWidth: 1,
+  },
+  price: {
+    alignItems: "flex-end",
   },
 });
 
-export default CryptoList;
+export default memo(CryptoList);

@@ -1,6 +1,6 @@
 import { StyleSheet, View } from "react-native";
 
-import { theme } from "../../styles/palette";
+import { theme } from "../../../styles/palette";
 
 interface ContainerProps {
   children: React.ReactNode;

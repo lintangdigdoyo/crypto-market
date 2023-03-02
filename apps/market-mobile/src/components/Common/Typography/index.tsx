@@ -22,7 +22,7 @@ const Typography = ({
       style={[
         theme.textVariants[variant],
         weight && { fontWeight: weight },
-        { color },
+        !!color && { color },
       ]}
       {...restProps}
     >

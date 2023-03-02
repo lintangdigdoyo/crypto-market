@@ -1,15 +1,26 @@
-import { View, Text, StyleSheet } from "react-native";
+import { memo } from "react";
+import { View, StyleSheet } from "react-native";
+import { SvgUri } from "react-native-svg";
 
 import { theme } from "../../styles/palette";
 import Typography from "../Common/Typography";
 
-const CryptoName = () => {
+interface CryptoNameProps {
+  name: string;
+  symbol: string;
+  color: string;
+  logoUrl: string;
+}
+
+const CryptoName = ({ name, symbol, color, logoUrl }: CryptoNameProps) => {
   return (
     <View style={styles.container}>
-      <Text>LOGO</Text>
-      <View style={styles.content}>
-        <Typography variant="title">Bitcoin</Typography>
-        <Typography variant="caption">BTC</Typography>
+      <View style={styles.logo}>
+        <SvgUri color={color} width={28} height={28} uri={logoUrl} />
+      </View>
+      <View>
+        <Typography variant="title">{name}</Typography>
+        <Typography variant="caption">{symbol}</Typography>
       </View>
     </View>
   );
@@ -20,9 +31,11 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
   },
-  content: {
-    marginLeft: theme.spacing.m,
+  logo: {
+    marginRight: theme.spacing.m,
+    width: 28,
+    height: 28,
   },
 });
 
-export default CryptoName;
+export default memo(CryptoName);

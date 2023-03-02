@@ -1,20 +1,21 @@
 import { View, StyleSheet } from "react-native";
-import { FontAwesome } from "@expo/vector-icons";
 
 import { theme } from "../../styles/palette";
+import { ArrowDown, ArrowUp } from "../../assets/icons";
 import Typography from "../Common/Typography";
 
-const Percentage = () => {
+const Percentage = ({ value = "0" }) => {
+  const isNegative = value.includes("-");
+
   return (
     <View style={styles.container}>
-      <FontAwesome
-        style={styles.logo}
-        name="caret-up"
-        size={24}
-        color={theme.colors.success}
-      />
-      <Typography variant="caption" weight="600" color={theme.colors.success}>
-        33.3%
+      {isNegative ? <ArrowDown /> : <ArrowUp />}
+      <Typography
+        variant="caption"
+        weight="600"
+        color={isNegative ? theme.colors.error : theme.colors.success}
+      >
+        {value}%
       </Typography>
     </View>
   );
