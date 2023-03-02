@@ -5,6 +5,7 @@
   "scripts": {
     "dev:mobile": "nx run market-mobile:start",
     "build:mobile": "nx build market-mobile",
+    "publish:mobile": "nx run market-mobile:publish",
     "dev:web": "nx serve market-web",
     "build:web": "nx run market-web:build:production",
     "start:web": "nx run market-web:serve:production"
