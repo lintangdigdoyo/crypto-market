@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
     borderTopWidth: 0,
     borderBottomWidth: 8,
     borderColor: "transparent",
-    borderTopColor: theme.colors.success,
+    borderBottomColor: theme.colors.success,
   },
 });
 

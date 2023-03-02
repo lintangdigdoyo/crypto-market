@@ -14,6 +14,7 @@ const colors = {
 export const theme = {
   colors,
   spacing: {
+    xs: 4,
     s: 8,
     m: 16,
     l: 24,

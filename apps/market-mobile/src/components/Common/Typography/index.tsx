@@ -7,6 +7,7 @@ interface TypographyProps extends TextProps {
   variant?: TypographyVariantType;
   color?: string;
   weight?: TextStyle["fontWeight"];
+  style?: TextStyle;
   children: React.ReactNode;
 }
 
@@ -15,6 +16,7 @@ const Typography = ({
   color,
   children,
   weight,
+  style,
   ...restProps
 }: TypographyProps) => {
   return (
@@ -23,6 +25,7 @@ const Typography = ({
         theme.textVariants[variant],
         weight && { fontWeight: weight },
         !!color && { color },
+        !!style && { ...style },
       ]}
       {...restProps}
     >

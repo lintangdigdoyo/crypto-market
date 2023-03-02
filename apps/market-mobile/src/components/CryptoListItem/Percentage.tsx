@@ -14,6 +14,7 @@ const Percentage = ({ value = "0" }) => {
         variant="caption"
         weight="600"
         color={isNegative ? theme.colors.error : theme.colors.success}
+        style={styles.percentage}
       >
         {value}%
       </Typography>
@@ -27,8 +28,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "flex-end",
   },
-  logo: {
-    marginRight: theme.spacing.s,
+  percentage: {
+    marginLeft: theme.spacing.xs,
   },
 });
 
