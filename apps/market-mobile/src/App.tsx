@@ -1,14 +1,22 @@
-import { SafeAreaView, StatusBar } from 'react-native';
-import Market from './screens/Market';
+import { StatusBar } from "react-native";
+import { SafeAreaProvider } from "react-native-safe-area-context";
+import { QueryClientProvider } from "@tanstack/react-query";
+
+import queryClient from "./services/queryClient";
+import { theme } from "./styles/palette";
+import Navigation from "./navigation";
 
 const App = () => {
   return (
-    <>
-      <StatusBar barStyle="light-content" />
-      <SafeAreaView>
-        <Market />
-      </SafeAreaView>
-    </>
+    <QueryClientProvider client={queryClient}>
+      <SafeAreaProvider>
+        <Navigation />
+        <StatusBar
+          backgroundColor={theme.colors.white}
+          barStyle="dark-content"
+        />
+      </SafeAreaProvider>
+    </QueryClientProvider>
   );
 };
 

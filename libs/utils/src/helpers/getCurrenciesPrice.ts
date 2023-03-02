@@ -1,12 +1,13 @@
 import {
   PriceChangesResType,
   SupportedCurrenciesResType,
+  CurrenciesPriceType,
 } from "@crypto-market/services";
 
 const getCurrenciesPrice = (
   currencies?: SupportedCurrenciesResType,
   priceChanges?: PriceChangesResType
-) => {
+): CurrenciesPriceType[] => {
   if (!currencies || !priceChanges) return [];
   const result = currencies.payload.map((currency) => {
     const matchesPrice = priceChanges.payload.find((price) =>

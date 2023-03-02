@@ -1,64 +1,57 @@
-import { useRef } from 'react';
-import { StyleSheet, ScrollView, View, Text } from 'react-native';
+import { RefreshControl, ScrollView } from "react-native";
+
+import { getCurrenciesPrice } from "@crypto-market/utils";
+
+import {
+  useGetSupportedCurrencies,
+  useGetPriceChanges,
+} from "../services/hooks";
+import CryptoListItem from "../components/CryptoListItem";
+import ListSkeleton from "../components/Common/Skeleton/ListSkeleton";
 
 const Market = () => {
-  const scrollViewRef = useRef<null | ScrollView>(null);
+  const { data: dataGetSuppertedCurrencies } = useGetSupportedCurrencies({
+    staleTime: 1000 * 60 * 60,
+    cacheTime: 1000 * 60 * 65,
+  });
+
+  const {
+    data: dataGetPriceChange,
+    isLoading: isLoadingGetPriceChange,
+    refetch: refetchGetPriceChange,
+  } = useGetPriceChanges({
+    refetchInterval: 1000 * 5,
+  });
+
+  const data = getCurrenciesPrice(
+    dataGetSuppertedCurrencies,
+    dataGetPriceChange
+  );
+
+  if (isLoadingGetPriceChange) return <ListSkeleton />;
 
   return (
     <ScrollView
-      ref={(ref) => {
-        scrollViewRef.current = ref;
-      }}
-      contentInsetAdjustmentBehavior="automatic"
-      style={styles.scrollView}
+      refreshControl={
+        <RefreshControl
+          refreshing={isLoadingGetPriceChange}
+          onRefresh={refetchGetPriceChange}
+        />
+      }
     >
-      <View style={styles.section}>
-        <Text style={styles.textLg}>Hello there</Text>
-        <Text style={[styles.textXL, styles.appTitleText]} testID="heading">
-          Welcome MarketMobile
-        </Text>
-      </View>
-      <View style={styles.section}>
-        <View style={styles.hero}>
-          <View style={styles.heroTitleText}>
-            <Text style={[styles.textLg, styles.heroTitleText]}>
-              You're up and running
-            </Text>
-          </View>
-        </View>
-      </View>
+      {data.map((item, index) => (
+        <CryptoListItem
+          key={index}
+          name={item.name}
+          logo={item.logo}
+          currencySymbol={item.currencySymbol}
+          color={item.color}
+          latestPrice={item.latestPrice ?? ""}
+          day={item.day ?? ""}
+        />
+      ))}
     </ScrollView>
   );
 };
-
-const styles = StyleSheet.create({
-  scrollView: {
-    backgroundColor: '#ffffff',
-  },
-  textLg: {
-    fontSize: 24,
-  },
-  textXL: {
-    fontSize: 48,
-  },
-  section: {
-    marginVertical: 24,
-    marginHorizontal: 12,
-  },
-  appTitleText: {
-    paddingTop: 12,
-    fontWeight: '500',
-  },
-  hero: {
-    borderRadius: 12,
-    backgroundColor: '#143055',
-    padding: 36,
-    marginBottom: 24,
-  },
-  heroTitleText: {
-    color: '#ffffff',
-    marginLeft: 12,
-  },
-});
 
 export default Market;

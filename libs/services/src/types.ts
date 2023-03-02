@@ -56,4 +56,4 @@ export type PriceChangePayloadType = {
 /** End of Price Changes Types */
 
 export type CurrenciesPriceType = SupportedCurrenciesPayloadType &
-  PriceChangePayloadType;
+  Partial<PriceChangePayloadType>;

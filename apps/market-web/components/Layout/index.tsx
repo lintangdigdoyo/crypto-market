@@ -9,8 +9,11 @@ const Layout = ({ children }: LayoutProps) => {
     <>
       <Head>
         <title>Crypto Market</title>
+        <meta name="description" content="Harga Crypto dalam Rupiah Hari Ini" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="max-w-7xl mx-auto my-6">{children}</main>
+      <main className="mx-auto my-6 max-w-7xl">{children}</main>
     </>
   );
 };
