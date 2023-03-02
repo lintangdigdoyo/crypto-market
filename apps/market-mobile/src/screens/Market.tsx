@@ -1,15 +1,17 @@
-import { StyleSheet, ScrollView, View, Text } from "react-native";
+import { FlatList, RefreshControl } from "react-native";
+
+import CryptoList from "../components/CryptoList";
+import Separator from "../components/Common/Separator";
 
 const Market = () => {
   return (
-    <ScrollView>
-      <View>
-        <Text>Hello world</Text>
-      </View>
-    </ScrollView>
+    <FlatList
+      data={[{ item: "1" }, { item: "2" }]}
+      renderItem={({ item }) => <CryptoList />}
+      refreshControl={<RefreshControl refreshing={false} />}
+      ItemSeparatorComponent={Separator}
+    />
   );
 };
-
-const styles = StyleSheet.create({});
 
 export default Market;
