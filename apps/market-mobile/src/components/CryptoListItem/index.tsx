@@ -6,7 +6,7 @@ import Percentage from "./Percentage";
 import Price from "./Price";
 import CryptoName from "./CryptoName";
 
-interface CryptoListProps {
+interface CryptoListItemProps {
   name: string;
   color: string;
   logo: string;
@@ -15,14 +15,14 @@ interface CryptoListProps {
   day: string;
 }
 
-const CryptoList = ({
+const CryptoListItem = ({
   name,
   color,
   logo,
   currencySymbol,
   latestPrice,
   day,
-}: CryptoListProps) => {
+}: CryptoListItemProps) => {
   return (
     <View style={styles.container}>
       <CryptoName
@@ -54,4 +54,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default memo(CryptoList);
+export default memo(CryptoListItem);

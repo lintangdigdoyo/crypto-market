@@ -16,7 +16,7 @@ const CryptoName = ({ name, symbol, color, logoUrl }: CryptoNameProps) => {
   return (
     <View style={styles.container}>
       <View style={styles.logo}>
-        <SvgUri color={color} width={28} height={28} uri={logoUrl} />
+        <SvgUri color={color} width={30} height={30} uri={logoUrl} />
       </View>
       <View>
         <Typography variant="title">{name}</Typography>
@@ -33,8 +33,8 @@ const styles = StyleSheet.create({
   },
   logo: {
     marginRight: theme.spacing.m,
-    width: 28,
-    height: 28,
+    width: 30,
+    height: 30,
   },
 });
 

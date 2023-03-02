@@ -23,6 +23,7 @@ const BottomTabNavigator = () => {
         component={Market}
         options={{
           title: "Market",
+          headerTitleAlign: "left",
           tabBarIcon: ({ color }) => (
             <Ionicons name="md-stats-chart" size={24} color={color} />
           ),

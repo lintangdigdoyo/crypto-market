@@ -6,7 +6,8 @@ import {
   useGetSupportedCurrencies,
   useGetPriceChanges,
 } from "../services/hooks";
-import CryptoList from "../components/CryptoList";
+import CryptoListItem from "../components/CryptoListItem";
+import ListSkeleton from "../components/Common/Skeleton/ListSkeleton";
 
 const Market = () => {
   const { data: dataGetSuppertedCurrencies } = useGetSupportedCurrencies({
@@ -19,13 +20,15 @@ const Market = () => {
     isLoading: isLoadingGetPriceChange,
     refetch: refetchGetPriceChange,
   } = useGetPriceChanges({
-    refetchInterval: 1000 * 2,
+    refetchInterval: 1000 * 5,
   });
 
   const data = getCurrenciesPrice(
     dataGetSuppertedCurrencies,
     dataGetPriceChange
   );
+
+  if (isLoadingGetPriceChange) return <ListSkeleton />;
 
   return (
     <ScrollView
@@ -37,7 +40,7 @@ const Market = () => {
       }
     >
       {data.map((item, index) => (
-        <CryptoList
+        <CryptoListItem
           key={index}
           name={item.name}
           logo={item.logo}

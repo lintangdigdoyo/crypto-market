@@ -17,7 +17,7 @@ const Price = ({ value = "" }) => {
     colorAnim.setValue(1);
     Animated.timing(colorAnim, {
       toValue: 0,
-      duration: 2000,
+      duration: 4000,
       useNativeDriver: false,
     }).start();
     // eslint-disable-next-line react-hooks/exhaustive-deps
