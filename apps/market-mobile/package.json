@@ -21,7 +21,8 @@
     "@expo/webpack-config": "*",
     "@tanstack/react-query": "*",
     "axios": "*",
-    "dompurify": "*"
+    "dompurify": "*",
+    "expo-updates": "*"
   },
   "scripts": {
     "eas-build-pre-install": "cd ../../ && cp package-lock.json ./apps/market-mobile/",
