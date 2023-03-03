@@ -1,4 +1,3 @@
-import renderer from "react-test-renderer";
 import { screen, render } from "@testing-library/react";
 import "@testing-library/jest-dom";
 
