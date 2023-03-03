@@ -2,7 +2,7 @@ import { StyleSheet, View } from "react-native";
 
 import { theme } from "../../styles/palette";
 
-const ArrowUp = () => <View style={styles.icon} />;
+const ArrowUp = () => <View style={styles.icon} testID="arrow-up" />;
 
 const styles = StyleSheet.create({
   icon: {

@@ -1,7 +1,7 @@
 import getCurrenciesPrice from "../getCurrenciesPrice";
 
 describe("getCurrenciesPrice function", () => {
-  it("should return combination between currencies and prices that have the same pair", () => {
+  it("should return combination of the currencies and prices that have the same pair", () => {
     const dummyCurrencyData = {
       code: "dummy-code",
       message: "dummy-message",
@@ -23,6 +23,14 @@ describe("getCurrenciesPrice function", () => {
       message: "dummy-message",
       payload: [
         {
+          pair: "eth-pair2",
+          latestPrice: "dummy-latestPrice2",
+          day: "dummy-day",
+          week: "dummy-week2",
+          month: "dummy-month2",
+          year: "dummy-year2",
+        },
+        {
           pair: "btc-pair",
           latestPrice: "dummy-latestPrice",
           day: "dummy-day",
@@ -30,21 +38,13 @@ describe("getCurrenciesPrice function", () => {
           month: "dummy-month",
           year: "dummy-year",
         },
-        {
-          pair: "btc-pair2",
-          latestPrice: "dummy-latestPrice2",
-          day: "dummy-da2y",
-          week: "dummy-week2",
-          month: "dummy-month2",
-          year: "dummy-year2",
-        },
       ],
     };
 
     const currenciesPriceData = [
       {
         ...dummyCurrencyData.payload[0],
-        ...dummyPricesData.payload[0],
+        ...dummyPricesData.payload[1],
       },
     ];
 

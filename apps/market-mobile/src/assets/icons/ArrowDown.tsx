@@ -2,7 +2,7 @@ import { View, StyleSheet } from "react-native";
 
 import { theme } from "../../styles/palette";
 
-const ArrowDown = () => <View style={styles.icon} />;
+const ArrowDown = () => <View style={styles.icon} testID="arrow-down" />;
 
 const styles = StyleSheet.create({
   icon: {

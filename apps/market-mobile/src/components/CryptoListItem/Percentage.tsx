@@ -15,6 +15,7 @@ const Percentage = ({ value = "0" }) => {
         weight="600"
         color={isNegative ? theme.colors.error : theme.colors.success}
         style={styles.percentage}
+        testID="percentage"
       >
         {value}%
       </Typography>

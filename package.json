@@ -7,6 +7,8 @@
     "build:mobile": "nx build market-mobile",
     "publish:mobile": "nx run market-mobile:publish",
     "lint:mobile": "nx lint market-mobile",
+    "test:mobile-watch": "nx test market-mobile --watch",
+    "test:mobile": "nx test market-mobile",
     "dev:web": "nx serve market-web",
     "build:web": "nx run market-web:build:production",
     "start:web": "nx run market-web:serve:production",

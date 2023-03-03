@@ -6,10 +6,10 @@ import { formatCurrency, useGetPreviousValue } from "@crypto-market/utils";
 import Typography from "../Common/Typography";
 import { theme } from "../../styles/palette";
 
-const Price = ({ value = "" }) => {
+const Price = ({ value = "0" }) => {
   const colorAnim = useRef(new Animated.Value(0)).current;
 
-  const previousValue = parseInt(useGetPreviousValue(value) ?? "");
+  const previousValue = parseInt(useGetPreviousValue(value) ?? "0");
   const currentValue = parseInt(value);
 
   useEffect(() => {
@@ -33,7 +33,9 @@ const Price = ({ value = "" }) => {
 
   return (
     <Animated.Text style={{ color: interpolatedColor }}>
-      <Typography variant="title">{formatCurrency(value)}</Typography>
+      <Typography variant="title" testID="price">
+        {formatCurrency(value)}
+      </Typography>
     </Animated.Text>
   );
 };
