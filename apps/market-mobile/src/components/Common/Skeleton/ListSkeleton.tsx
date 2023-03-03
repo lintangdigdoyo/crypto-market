@@ -1,4 +1,4 @@
-import { theme } from "apps/market-mobile/src/styles/palette";
+import { theme } from "../../../styles/palette";
 import { View, StyleSheet } from "react-native";
 
 import Container from "../Container";
