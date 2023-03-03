@@ -6,7 +6,7 @@ import {
 } from "@crypto-market/services";
 import { UseQueryOptions } from "@tanstack/react-query";
 
-const apiBase = process.env.API_BASE;
+const apiBase = process.env.API_BASE ?? "";
 
 export const useGetSupportedCurrencies = (
   options?: UseQueryOptions<SupportedCurrenciesResType>
