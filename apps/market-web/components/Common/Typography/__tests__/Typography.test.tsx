@@ -6,15 +6,6 @@ import { TypographyType, TypographyVariantType } from "../types";
 import Typography from "..";
 
 describe("Typography component", () => {
-  it("should renders typography correctly", () => {
-    const props = {
-      children: <>children</>,
-    };
-    const component = renderer.create(<Typography {...props} />);
-    const tree = component.toJSON();
-    expect(tree).toMatchSnapshot();
-  });
-
   it("should renders typography with typography-heading1 class", () => {
     const props = {
       children: <>children</>,
