@@ -1,13 +1,13 @@
-import { screen, render } from "@testing-library/react";
-import "@testing-library/jest-dom";
+import { screen, render } from "@testing-library/react-native";
+import "@testing-library/jest-native";
 
-import Price from "../components/Price";
+import Price from "../Price";
 
 describe("Price component", () => {
   it("should renders a correct currency format", () => {
-    render(<Price value="100000" />);
+    render(<Price value="1000000" />);
     const price = screen.getByTestId("price");
-    expect(price).toHaveTextContent("Rp 100.000");
+    expect(price).toHaveTextContent("Rp 1.000.000");
   });
 
   it("should renders price with value Rp 0 when passing empty prop", () => {
