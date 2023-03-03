@@ -5,8 +5,8 @@ import { useGetPreviousValue } from "@crypto-market/utils";
 
 import Typography from "../../Common/Typography";
 
-const Price = ({ value = "" }) => {
-  const prevValue = useGetPreviousValue(value) ?? "";
+const Price = ({ value = "0" }) => {
+  const prevValue = useGetPreviousValue(value) ?? "0";
 
   const currencyFormatter = new Intl.NumberFormat("id-ID", {
     style: "currency",
@@ -22,6 +22,7 @@ const Price = ({ value = "" }) => {
         ["animate-pulse-red"]: parseInt(value) < parseInt(prevValue),
         ["animate-pulse-green"]: parseInt(value) > parseInt(prevValue),
       })}
+      data-testid="price"
     >
       {currencyFormatter.format(parseInt(value))}
     </Typography>
