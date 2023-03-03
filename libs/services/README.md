@@ -1,3 +1,3 @@
 # services
 
-library for handling service funtionalities
+library for handling API

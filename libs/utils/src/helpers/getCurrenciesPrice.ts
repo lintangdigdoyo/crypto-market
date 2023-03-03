@@ -4,6 +4,7 @@ import {
   CurrenciesPriceType,
 } from "@crypto-market/services";
 
+//to get the crypto prices in every currency
 const getCurrenciesPrice = (
   currencies?: SupportedCurrenciesResType,
   priceChanges?: PriceChangesResType
