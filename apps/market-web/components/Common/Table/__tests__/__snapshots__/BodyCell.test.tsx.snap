@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Table components should renders BodyCell correctly 1`] = `
+<td
+  className="p-5 border-t border-slate-200"
+>
+  children
+</td>
+`;

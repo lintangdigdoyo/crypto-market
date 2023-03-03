@@ -1,21 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Table components should renders BodyCell correctly 1`] = `
-<td
-  className="p-5 border-t border-slate-200"
->
-  children
-</td>
-`;
-
-exports[`Table components should renders HeadCell correctly 1`] = `
-<th
-  className="p-5 text-gray font-semibold"
->
-  children
-</th>
-`;
-
 exports[`Table components should renders Table correctly 1`] = `
 <table
   className="w-full border border-slate-200 border-separate border-spacing-0 rounded-lg"

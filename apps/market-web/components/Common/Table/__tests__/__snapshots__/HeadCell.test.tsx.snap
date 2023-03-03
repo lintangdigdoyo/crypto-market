@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HeadCell components should renders HeadCell correctly 1`] = `
+<th
+  className="p-5 text-gray font-semibold"
+>
+  children
+</th>
+`;
