@@ -6,7 +6,7 @@ import {
 } from "@crypto-market/services";
 import { UseQueryOptions } from "@tanstack/react-query";
 
-const apiBase = "https://api.pintu.co.id/v2";
+const apiBase = process.env["API_BASE_URL"] ?? "";
 
 export const useGetSupportedCurrencies = (
   options?: UseQueryOptions<SupportedCurrenciesResType>
