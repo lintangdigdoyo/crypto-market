@@ -23,10 +23,11 @@ const Typography = ({
     <Text
       style={[
         theme.textVariants[variant],
-        weight && { fontWeight: weight },
+        !!weight && { fontWeight: weight },
         !!color && { color },
         !!style && { ...style },
       ]}
+      testID="typography"
       {...restProps}
     >
       {children}
