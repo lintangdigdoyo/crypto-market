@@ -13,6 +13,8 @@
     "test:web": "nx test market-web",
     "test:web-watch": "nx test market-web --watch",
     "lint:web": "nx lint market-web",
+    "test:utils": "nx test utils",
+    "test:utils-watch": "nx test utils --watch",
     "prepare": "husky install",
     "format": "prettier --write ."
   },
