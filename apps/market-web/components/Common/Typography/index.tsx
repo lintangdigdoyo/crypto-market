@@ -42,6 +42,7 @@ const Typography = ({
         /** custom styles */
         className
       ),
+      "data-testid": "typography",
       ...restProps,
     },
     children

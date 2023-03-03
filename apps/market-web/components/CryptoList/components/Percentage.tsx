@@ -16,6 +16,7 @@ const Percentage = ({ value = "0" }) => {
           ["text-success"]: !isNegative,
           ["text-error"]: isNegative,
         })}
+        data-testid="percentage"
       >
         {value}%
       </Typography>
