@@ -1,4 +1,4 @@
-import { screen, render, AllByRole } from "@testing-library/react";
+import { screen, render, AllByRole, AllByText } from "@testing-library/react";
 import "@testing-library/jest-dom";
 
 import { TypographyType, TypographyVariantType } from "../types";
