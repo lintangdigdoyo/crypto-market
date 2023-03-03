@@ -10,6 +10,8 @@
     "dev:web": "nx serve market-web",
     "build:web": "nx run market-web:build:production",
     "start:web": "nx run market-web:serve:production",
+    "test:web": "nx test market-web",
+    "test:web-watch": "nx test market-web --watch",
     "lint:web": "nx lint market-web",
     "prepare": "husky install",
     "format": "prettier --write ."
@@ -67,6 +69,7 @@
     "@types/react": "18.0.25",
     "@types/react-dom": "18.0.9",
     "@types/react-native": "0.69.8",
+    "@types/react-test-renderer": "^18.0.0",
     "@typescript-eslint/eslint-plugin": "^5.36.1",
     "@typescript-eslint/parser": "^5.36.1",
     "autoprefixer": "10.4.13",
