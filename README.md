@@ -20,7 +20,7 @@ This repository also contains two libraries in the _/libs_ folder that can be sh
 
 ## Tech Stack:
 
-- [NX Monorepo]("https://nx.dev/")
+- [NX Monorepo](https://nx.dev/)
 - [React.js version 18](https://reactjs.org/)
 - [React Native version 0.7](https://reactjs.org/)
 - [Expo version 47](https://reactjs.org/)
