@@ -15,6 +15,8 @@
     "test:web": "nx test market-web",
     "test:web-watch": "nx test market-web --watch",
     "lint:web": "nx lint market-web",
+    "storybook:web": "nx run market-web:storybook",
+    "storybook:web:build": "nx run market-web:build-storybook",
     "test:utils": "nx test utils",
     "test:utils-watch": "nx test utils --watch",
     "prepare": "husky install",
@@ -51,7 +53,9 @@
     "tslib": "^2.3.0"
   },
   "devDependencies": {
+    "@babel/core": "7.12.13",
     "@babel/preset-react": "^7.14.5",
+    "@babel/preset-typescript": "7.12.13",
     "@nrwl/detox": "14.8.6",
     "@nrwl/eslint-plugin-nx": "15.7.2",
     "@nrwl/expo": "15.8.3",
@@ -60,8 +64,14 @@
     "@nrwl/linter": "15.7.2",
     "@nrwl/nx-cloud": "latest",
     "@nrwl/react": "15.7.2",
+    "@nrwl/storybook": "14.8.6",
     "@nrwl/web": "14.8.6",
     "@nrwl/workspace": "15.7.2",
+    "@storybook/addon-essentials": "~6.5.9",
+    "@storybook/builder-webpack5": "~6.5.9",
+    "@storybook/core-server": "~6.5.9",
+    "@storybook/manager-webpack5": "~6.5.9",
+    "@storybook/react": "~6.5.9",
     "@svgr/webpack": "^6.3.1",
     "@testing-library/jest-dom": "5.16.5",
     "@testing-library/jest-native": "4.0.11",
@@ -78,6 +88,7 @@
     "@typescript-eslint/parser": "^5.36.1",
     "autoprefixer": "10.4.13",
     "babel-jest": "28.1.1",
+    "babel-loader": "8.1.0",
     "babel-plugin-transform-inline-environment-variables": "^0.4.4",
     "babel-preset-expo": "~9.2.0",
     "detox": "19.12.1",
@@ -102,10 +113,15 @@
     "postcss": "8.4.19",
     "prettier": "^2.8.4",
     "pretty-quick": "^3.1.3",
+    "react-refresh": "^0.14.0",
     "react-test-renderer": "18.1.0",
+    "storybook-addon-next": "^1.6.6",
+    "storybook-addon-swc": "^1.1.7",
     "tailwindcss": "3.2.4",
     "ts-jest": "28.0.5",
     "ts-node": "10.9.1",
-    "typescript": "~4.8.2"
+    "typescript": "~4.8.2",
+    "url-loader": "^3.0.0",
+    "webpack": "^5.75.0"
   }
 }

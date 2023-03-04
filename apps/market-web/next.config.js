@@ -5,11 +5,6 @@ const withNx = require("@nrwl/next/plugins/with-nx");
  * @type {import('@nrwl/next/plugins/with-nx').WithNxOptions}
  **/
 const nextConfig = {
-  nx: {
-    // Set this to true if you would like to to use SVGR
-    // See: https://github.com/gregberge/svgr
-    svgr: false,
-  },
   env: {
     API_TARGET_URL: process.env.API_TARGET_URL || "",
     API_BASE: process.env.API_BASE || "",
