@@ -40,7 +40,7 @@ This repository also contains two libraries in the _/libs_ folder that can be sh
 
 ## Getting Started
 
-- Clone the repo `git@github.com:lintangdigdoyo/crypto-market.git`
+- Clone the repo `https://github.com/lintangdigdoyo/crypto-market.git`
 - Install project dependencies — `npm install`
 - Launch the **web app** — `npm run dev:web`, it will become available at [http://localhost:4200](http://localhost:4200/)
 - Launch the **mobile app** — `npm run dev:mobile`
