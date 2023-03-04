@@ -19,6 +19,8 @@
     "storybook:web:build": "nx run market-web:build-storybook",
     "test:utils": "nx test utils",
     "test:utils-watch": "nx test utils --watch",
+    "lint:utils": "nx lint utils",
+    "lint:services": "nx lint services",
     "prepare": "husky install",
     "format": "prettier --write ."
   },
