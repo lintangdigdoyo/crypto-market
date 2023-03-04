@@ -6,7 +6,7 @@ This project is built using `NX monorepo`, a tool for building and managing mono
 
 ## Apps
 
-This repository contains two apps in the _/apss_ folder:
+This repository contains two apps in the _/apps_ folder:
 
 - `market-web:` A web application built using Next.js and TypeScript.
 - `market-mobile:` A mobile application built using React Native and TypeScript.
