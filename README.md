@@ -16,7 +16,7 @@ This repository contains two apps in the _/apss_ folder:
 This repository also contains two libraries in the _/libs_ folder that can be shared between the apps:
 
 - `services:` A library that provides a set of functions and hooks for handling API requests and responses. These functions and hooks can be used by both the market-web and market-mobile apps to communicate with external APIs and retrieve data.
-- `utils:` A library that provides a set of utility functions and hooks that can be used by both the market-web and market-mobile apps. These functions can help with tasks such as formatting currency, manipulate data, managing state, etc.
+- `utils:` A library that provides a set of utility functions and hooks that can be used by both the market-web and market-mobile apps. These folders includes functions such as formatting currency, manipulate data, managing state, etc.
 
 ## Tech Stack:
 
@@ -55,8 +55,8 @@ This repository also contains two libraries in the _/libs_ folder that can be sh
 - `npm run test:web` — Run tests
 - `npm run test:web-watch` — Run tests in watch mode
 - `npm run lint:web` — Run lint in the web app
-- `storybook:web` — Launch storybook
-- `storybook:web:build` — Build storybook
+- `npm run storybook:web` — Launch storybook
+- `npm run storybook:web:build` — Build storybook
 
 ### Mobile app scripts
 
@@ -73,14 +73,18 @@ This repository also contains two libraries in the _/libs_ folder that can be sh
 - `npm run test:utils-watch` — Run utils lib tests in watch mode
 - `npm run lint:utils` — Run lint in the utils folder
 - `npm run lint:services` — Run lint in the services folder
-- `format` — format the repo using prettier
+- `npm run format` — format the repo using prettier
 
 ### App preview
 
 - `Web app:` https://crypto-market-five-alpha.vercel.app
 - `Mobile app:` https://expo.dev/@lintangdigdoyo/market-mobile — preview the app using Expo Go app
 
-### Why I chose a monorepo instead of a single repository app?
+## CI/CD with Github Action and Vercel
+
+By using Github Action, every time a pull request is created, it will test and lint the pull request to ensure that the commit passes the test and lint check before being merged. Additionally, a deploy preview is provided by Vercel on every commit, enabling a preview of the application before merging it to the main branch. When the pull request is merged into the main branch, the web application is automatically deployed to production.
+
+## Why I chose a monorepo instead of a single repository for a single app?
 
 The reason I chose to use a monorepo for this project because it allows us to easily share functionality between mobile and web apps. Since both apps are essentially the same project and rely on the same API, it avoids duplicating code which leads to a faster development process and also keeps both apps in sync with each other.
 
@@ -90,14 +94,13 @@ The reason I chose to use a monorepo for this project because it allows us to ea
 
   NX is a powerful toolkit for building and managing monorepo project. The reason use NX because it provides a number of _benefits_ such as:
 
-  - **Caching build and test processes:** NX uses caching to optimize build and test times, making it faster and more efficient.
   - **Code sharing between apps:** We can easily share code like functions and components between projects, so it can reduce duplication and gives a consistency in the codebase.
-  - **Ease of management:** NX provides set of tools for managing monorepo, such as code generation and dependency management.
+  - **Caching build and test processes:** NX uses caching to optimize build and test times, making it faster and more efficient.
+  - **Easy to use:** NX provides tools for managing monorepo, such as code generation, plugins and dependency management.
 
-  While NX provides a number of benefits, there are also some _tradeoffs_:
+  While NX provides a number of benefits, but there is still _tradeoff_ to consider:
 
-  - **Dependency management:** it can be difficult to manage dependencies across multiple projects than in a traditional single-project setup. Be careful and mindful of versioning and dependency conflicts to ensure that all projects remain compatible.
-  - **Configuration complexity:** Even though NX provides a set of tools for managing and generating projects and dependencies, it still can also lead to additional configuration complexity. Sometimes it may need to spend more time configuring and customizing the setup in order to get the most out of it.
+  - **Dependencies management:** it can be difficult to manage dependencies across multiple projects than in a traditional single-project setup. We should be careful and mindful of versioning and dependency conflicts to ensure that all projects remain compatible.
 
 - **Next:**
 
@@ -106,31 +109,51 @@ The reason I chose to use a monorepo for this project because it allows us to ea
   - **Server-side rendering:** Next provides built-in support for server-side rendering, which can improve performance and SEO for the app.
   - **SSR combined with React Query:** By combining server-side rendering with React Query, we can prefetch the data on the server and then store the data in the client cache, which will reduces the need for additional requests by the client. This approach results in a fast user experience, particularly on the initial load, since the client receive HTML file with loaded data and does not have to make additional requests for the same data again.
 
-  There are also potential _tradeoffs_ to consider:
+  _tradeoff_ to consider:
 
   - **Hydration related issue:** managing state and data fetching can require additional planning, as the pre-rendered React tree (SSR/SSG) and the React tree rendered during the first hydration process in the browser may sometimes become out of sync.
+
+- **Expo**
+
+  Expo is a set of tools and services for building and deploying React Native applications. This project uses Expo because it provides these _benefits_:
+
+  - **Quick and easy setup:** With Expo we can set up and begin building a new React Native app with just a few commands.
+  - **Easy to deploy:** Expo offers an easy deployment process, makes it easy to deploy the app to the App Store and Google Play.
+
+  _Tradeoff_ to consider:
+
+  - **Have limited support to the native module:** Expo has a limited set of native modules available.
+
+- **Axios**
+
+  Axios is a popular library for making HTTP requests, this project uses axios because of these _benefits_:
+
+  - **Support for multiple environments:** Axios can be used in a variety of environments, including browser, Node.js, and React Native mobile application.
+  - **Easy to use:** Simple and intuitive, makes it easy to send HTTP requests and handle responses.
+
+  But there is still some potential _Tradeoff_ to consider:
+
+  - **Additional external library:** We need to install it as an additional dependency in the project.
 
 - **React Query:**
 
   React Query is a server-state library, responsible for managing asynchronous operations between server and client. In this project React Query is used for both web and mobile apps because of these _benefits_ over other state management libraries:
 
   - **Caching:** React Query automatically caches API responses, reducing the need for unnecessary network requests and improving performance.
-  - **Flexible query management:** we can fetch, store, and manage the data/state with ease.
+  - **Handle server state with ease:** we can fetch, store, and manage the data/state with ease.
   - **Server-side rendering support:** React Query provides built-in support for server-side rendering, making it easier to use it with SSR applications.
 
-  But there are still some potential _tradeoffs_ to consider when using React Query:
+  But there is still potential _tradeoff_ to consider when using React Query:
 
   - **Not a replacement of client state management:** React Query is not a replacement for local/client state management. Although React Query is useful for managing data fetching and caching, it may not be sufficient for managing all aspects of client-side state. In some cases, it may be necessary to combine React Query with other state management to ensure proper handling of client-side state.
 
-- **Axios**
-
-  Axios is a popular library for making HTTP requests,
-
-- Expo
-- Github Actions and Vercel
-
 ## Future improvements
 
-- storybook
-- only deploy affected app
-- make the component globaly
+- **Only deploy affected app**\
+  Currently, every time we push a commit the deployment process is triggered, even if there are no code changes in the app being deployed. This can result in unnecessary deployments. To address this, we can configure the monorepo to only deploy the affected app when there are changes detected. This approach can significantly reduce the amount of deployment.
+
+- **Make the components globaly available**\
+  To ensure consistency across different projects within the monorepo, it's better to make the commonly used and reusable components as library. By doing this, these components can be easily reused in future projects within this repository, avoiding the need to recreate them from scratch.
+
+- **Storybook for the mobile app**\
+  Currently, this project only provides Storybook for the web app. However, it will better to provide Storybook to the mobile app. Having Storybook available for both web and mobile apps can also ensure component consistency and give access to preview the component.
