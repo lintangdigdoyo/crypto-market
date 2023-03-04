@@ -32,7 +32,6 @@ This repository also contains two libraries in the _/libs_ folder that can be sh
 - [Jest](https://jestjs.io/)
 - [React-testing-library](https://testing-library.com/docs/react-testing-library/intro/)
 - [Storybook](https://storybook.js.org/)
-- [Github Actions](https://github.com/features/actions)
 
 ## Requirements
 
